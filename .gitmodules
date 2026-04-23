@@ -1,0 +1,3 @@
+[submodule "arbor-vcs-frontend"]
+	path = arbor-vcs-frontend
+	url = https://github.com/arbor-vcs-app/arbor-vcs-frontend
