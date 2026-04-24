@@ -3,7 +3,7 @@
   A web-based document management platform with structured version control, role-based access, and a review workflow
   for teams.
 
-  Built as a university project and deployed on Google Cloud Platform.
+  Built as a university project and deployed on Google Cloud Platform & Vercel.
 
   ---
 
@@ -14,6 +14,19 @@
   clean, responsive web interface.
 
   ---
+  
+   ## Team
+
+  |     Name           |   Role               |                        GitHub                             |
+  |------------------  |----------------------|-----------------------------------------------------------|
+  | Konstantin Nenov   | Frontend             | [@konstantinNenov](https://github.com/konstantinNenov)    |
+  | Djan Fuchidji      | Backend              | [@Djan9999](https://github.com/Djan9999)                  |
+  | Iliana Ilieva      | Lean Canvas + Design | [@iliana-ilieva](https://github.com/iliana-ilieva)        |
+  | Kaloyan Kolev      | Documentaion         | [@kalokolev](https://github.com/kalokolev)                |
+  | Kaloyan Karpachev  | Deployment           | [@kkarpachevv-star](https://github.com/kkarpachevv-star)  |
+  | Vasil Ivanov       | Architecture Diagram | [@VasilIvanov61](https://github.com/VasilIvanov61)        |
+
+  --
 
   ## Features
 
@@ -56,6 +69,17 @@
   ├── backend/         → Java backend (submodule)
   ├── database/        → SQL schema
   └── docs/            → User manual, technical documentation, architecture diagram
+
+  ---
+
+  ## Documentation
+
+  |                                                                                     Document                                                                                     |                                     Description                                           |
+  |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+  | [User Manual](https://github.com/arbor-vcs-app/arbor-vcs-overview/blob/main/docs/Arbor%20Version%20Control%20System%20-%20User%20Manual%20-%20v1.1.pdf)                          | End-user guide covering all features and roles                                            |
+  | [Technical Documentation](https://github.com/arbor-vcs-app/arbor-vcs-overview/blob/main/docs/Arbor%20Version%20Control%20System%20-%20Technical%20Documentation%20-%20v.1.1.pdf) | System design, API reference, and implementation details                                  |
+  | [Architecture Diagram](https://github.com/arbor-vcs-app/arbor-vcs-overview/blob/main/docs/Proekt-architecture.drawio)                                                            | Visual overview ofthe system architecture — open with [draw.io](https://app.diagrams.net) |
+  | [Lean Canvas](https://github.com/arbor-vcs-app/arbor-vcs-overview/blob/main/docs/Lean%20Canvas.png)                                                                              | Business model overview                                                                   |
 
   ---
 
