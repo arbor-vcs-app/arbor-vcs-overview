@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-04-18T00:00:00.000Z" agent="Claude" version="21.6.5" type="device">
+  <diagram name="Arbor VCS Architecture" id="arbor-vcs-arch">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TITLE -->
+        <mxCell id="2" value="&lt;b style=&quot;font-size:20px&quot;&gt;Arbor Version Control System&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#555555&quot; style=&quot;font-size:12px&quot;&gt;System Architecture Diagram  ·  Version 1.0  ·  April 2026  ·  Technical University of Sofia &amp;amp; SAP Labs&lt;/font&gt;"
+          style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];strokeColor=none;fillColor=none;"
+          vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="1260" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CLIENT LAYER                                        -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <mxCell id="10" value="CLIENT LAYER — Presentation Tier  (Java Swing GUI · Prototyped in Figma)"
+          style="swimlane;startSize=35;fontStyle=1;fontSize=12;fillColor=#E6F3FF;strokeColor=#4A90D9;fontColor=#1A5276;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="1574" height="220" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="11" value="&lt;b style=&quot;font-size:13px;color:#1A5276&quot;&gt;✍️  AUTHOR&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#333333&quot; style=&quot;font-size:11px&quot;&gt;· Create new documents&lt;br&gt;· Create new versions&lt;br&gt;· Submit versions for review&lt;br&gt;· View document history&lt;br&gt;· Edit draft versions&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;"
+          vertex="1" parent="10">
+          <mxGeometry x="20" y="45" width="355" height="155" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="12" value="&lt;b style=&quot;font-size:13px;color:#7D6608&quot;&gt;🔍  REVIEWER&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#333333&quot; style=&quot;font-size:11px&quot;&gt;· Review submitted versions&lt;br&gt;· Approve versions → APPROVED&lt;br&gt;· Reject versions → REJECTED&lt;br&gt;· Add review comments&lt;br&gt;· View pending versions list&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;"
+          vertex="1" parent="10">
+          <mxGeometry x="415" y="45" width="355" height="155" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="13" value="&lt;b style=&quot;font-size:13px;color:#145A32&quot;&gt;📖  READER&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#333333&quot; style=&quot;font-size:11px&quot;&gt;· Read-only access&lt;br&gt;· View ACTIVE documents only&lt;br&gt;· Browse document list&lt;br&gt;· View version content&lt;br&gt;&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;"
+          vertex="1" parent="10">
+          <mxGeometry x="810" y="45" width="355" height="155" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="14" value="&lt;b style=&quot;font-size:13px;color:#78281F&quot;&gt;⚙️  ADMIN&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#333333&quot; style=&quot;font-size:11px&quot;&gt;· Manage user accounts&lt;br&gt;· Approve / reject role requests&lt;br&gt;· Full system access&lt;br&gt;· All CRUD permissions&lt;br&gt;&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;"
+          vertex="1" parent="10">
+          <mxGeometry x="1205" y="45" width="349" height="155" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow: Client → Server -->
+        <mxCell id="20" value=""
+          style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;startArrow=block;endFill=1;startFill=1;strokeColor=#4A90D9;strokeWidth=2;"
+          edge="1" source="10" target="30" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="21" value="&lt;b&gt;HTTP / REST · JSON&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#555&quot;&gt;Authorization: Bearer &amp;lt;JWT&amp;gt;&lt;/font&gt;"
+          style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fillColor=#ffffff;strokeColor=#4A90D9;rounded=1;fontSize=11;"
+          vertex="1" connectable="0" parent="20">
+          <mxGeometry relative="0" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- SERVER / APPLICATION LAYER                          -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <mxCell id="30" value="APPLICATION LAYER — Javalin Server (Java)"
+          style="swimlane;startSize=35;fontStyle=1;fontSize=12;fillColor=#F0FFF0;strokeColor=#2D8A2D;fontColor=#1A4A1A;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="370" width="1574" height="870" as="geometry"/>
+        </mxCell>
+
+        <!-- Middleware -->
+        <mxCell id="31" value="&lt;b style=&quot;color:#7D5200;font-size:12px&quot;&gt;🛡️  MIDDLEWARE / SECURITY FILTER  (app.before)&lt;/b&gt;     ·  Intercepts all /api/* requests  ·  Skips /api/login &amp;amp; /api/register  ·  Validates JWT (HMAC256)  ·  Extracts userId + Role  ·  Injects User object into request context"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;align=left;verticalAlign=middle;spacingLeft=14;fontSize=11;"
+          vertex="1" parent="30">
+          <mxGeometry x="20" y="50" width="1534" height="75" as="geometry"/>
+        </mxCell>
+
+        <!-- API Endpoints -->
+        <mxCell id="32" value="&lt;b style=&quot;color:#1A4A1A;font-size:12px&quot;&gt;🔌  REST API ENDPOINTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-family:monospace;font-size:11px&quot;&gt;&lt;b style=&quot;color:#27AE60&quot;&gt;POST&lt;/b&gt;  /api/register                      Register new user                    [Public]&lt;br&gt;&lt;b style=&quot;color:#27AE60&quot;&gt;POST&lt;/b&gt;  /api/login                          Authenticate user, returns JWT       [Public]&lt;br&gt;&lt;b style=&quot;color:#E67E22&quot;&gt;PUT&lt;/b&gt;   /api/change-password                Update password (verify old first)   [🔒 JWT]&lt;br&gt;&lt;b style=&quot;color:#27AE60&quot;&gt;POST&lt;/b&gt;  /api/documents                      Create new document + version 1      [🔒 Author / Admin]&lt;br&gt;&lt;b style=&quot;color:#27AE60&quot;&gt;POST&lt;/b&gt;  /api/documents/{id}/versions        Submit new version for approval      [🔒 Author / Admin]&lt;br&gt;&lt;b style=&quot;color:#E67E22&quot;&gt;PUT&lt;/b&gt;   /api/documents/{id}/review          Approve or reject pending version    [🔒 Reviewer / Admin]&lt;br&gt;&lt;b style=&quot;color:#2980B9&quot;&gt;GET&lt;/b&gt;   /api/documents/pending              Get all versions awaiting review     [🔒 Reviewer / Admin]&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;align=left;verticalAlign=top;spacingLeft=14;spacingTop=10;fontSize=11;"
+          vertex="1" parent="30">
+          <mxGeometry x="20" y="140" width="1534" height="205" as="geometry"/>
+        </mxCell>
+
+        <!-- DTOs -->
+        <mxCell id="40" value="&lt;b style=&quot;color:#006064;font-size:11px&quot;&gt;📦  DTOs:&lt;/b&gt;   LoginRequest  ·  LoginResponse (JWT + role)  ·  RegisterRequest  ·  ChangePasswordRequest  ·  CreateDocumentRequest  ·  CreateVersionRequest  ·  DocumentDTO  ·  PendingVersionDTO  ·  ReviewVersionRequest"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F7FA;strokeColor=#00ACC1;align=left;verticalAlign=middle;spacingLeft=14;fontSize=11;"
+          vertex="1" parent="30">
+          <mxGeometry x="20" y="360" width="1534" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- Services Container -->
+        <mxCell id="50" value="SERVICE LAYER — Core Business Logic"
+          style="swimlane;startSize=30;fontStyle=1;fontSize=11;fillColor=#E8EAF6;strokeColor=#3F51B5;fontColor=#1A237E;"
+          vertex="1" parent="30">
+          <mxGeometry x="20" y="430" width="1534" height="265" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="51" value="&lt;b style=&quot;color:#4A235A;font-size:12px&quot;&gt;🔑  AuthService&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#333&quot;&gt;&lt;b&gt;register()&lt;/b&gt;&lt;br&gt;  BCrypt hash password → DB insert&lt;br&gt;&lt;br&gt;&lt;b&gt;login()&lt;/b&gt;&lt;br&gt;  Retrieve user from DB&lt;br&gt;  Verify BCrypt → Issue JWT token&lt;br&gt;&lt;br&gt;&lt;b&gt;changePassword()&lt;/b&gt;&lt;br&gt;  Verify old password&lt;br&gt;  Re-hash new password → Update DB&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#7E57C2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;"
+          vertex="1" parent="50">
+          <mxGeometry x="10" y="40" width="480" height="210" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="52" value="&lt;b style=&quot;color:#0D47A1;font-size:12px&quot;&gt;📄  DocumentService  (Core Logic)&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#333&quot;&gt;&lt;b&gt;createDocument()&lt;/b&gt;  AUTHOR/ADMIN · transaction (commit/rollback) · audit log&lt;br&gt;&lt;b&gt;createNewVersion()&lt;/b&gt;  Creates version with status PENDING_APPROVAL · transaction&lt;br&gt;&lt;b&gt;reviewVersion()&lt;/b&gt;  Changes status APPROVED / REJECTED · REVIEWER/ADMIN · transaction&lt;br&gt;&lt;b&gt;getDocumentWithHistory()&lt;/b&gt;  Returns document + all versions sorted descending&lt;br&gt;&lt;b&gt;getDocumentList()&lt;/b&gt;  Returns ACTIVE documents only (default), filter by author&lt;br&gt;&lt;b&gt;getPendingVersions()&lt;/b&gt;  Returns all versions awaiting review (for Reviewer)&lt;br&gt;&lt;b&gt;addComment()&lt;/b&gt;  Adds reviewer comment to a specific version&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;"
+          vertex="1" parent="50">
+          <mxGeometry x="500" y="40" width="530" height="210" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="53" value="&lt;b style=&quot;color:#880E4F;font-size:12px&quot;&gt;👥  RoleService&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;color:#333&quot;&gt;&lt;b&gt;requestRoleChange()&lt;/b&gt;&lt;br&gt;  User submits role-change request&lt;br&gt;&lt;br&gt;&lt;b&gt;getPendingRequests()&lt;/b&gt;&lt;br&gt;  Admin view of pending requests&lt;br&gt;&lt;br&gt;&lt;b&gt;approveRequest()&lt;/b&gt;&lt;br&gt;  → Updates user.role in DB&lt;br&gt;&lt;br&gt;&lt;b&gt;rejectRequest()&lt;/b&gt;&lt;br&gt;  → Sets request status = REJECTED&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#C2185B;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;"
+          vertex="1" parent="50">
+          <mxGeometry x="1040" y="40" width="484" height="210" as="geometry"/>
+        </mxCell>
+
+        <!-- Security Block -->
+        <mxCell id="60" value="&lt;b style=&quot;color:#4A1A00;font-size:12px&quot;&gt;🔐  SECURITY COMPONENTS&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;🔒 &lt;b&gt;BCrypt&lt;/b&gt;: One-way hashing · Salt included · Secure password storage     |     🪙 &lt;b&gt;JWT HMAC256&lt;/b&gt;: payload = userId + username + role + expiry  ·  TTL: 20h (72,000,000 ms)     |     🛡️ &lt;b&gt;RBAC&lt;/b&gt;: Role-Based Access Control (AUTHOR | REVIEWER | READER | ADMIN)     |     ⚡ &lt;b&gt;Transactions&lt;/b&gt;: setAutoCommit(false) → commit / rollback on error     |     📋 &lt;b&gt;Audit Trail&lt;/b&gt;: CREATE_DOCUMENT · CREATE_VERSION · REVIEW_VERSION → logged with user_id + timestamp     |     🌍 &lt;b&gt;Env Vars&lt;/b&gt;: JWT_SECRET · DB_URL · DB_USER&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;align=left;verticalAlign=top;spacingLeft=14;spacingTop=10;fontSize=11;"
+          vertex="1" parent="30">
+          <mxGeometry x="20" y="710" width="1534" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow: Server → DB -->
+        <mxCell id="70" value=""
+          style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;startArrow=block;endFill=1;startFill=1;strokeColor=#7B1FA2;strokeWidth=2;"
+          edge="1" source="30" target="80" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="71" value="&lt;b&gt;JDBC  ·  Connection / PreparedStatement  ·  Manual SQL Queries&lt;/b&gt;"
+          style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;fillColor=#ffffff;strokeColor=#7B1FA2;rounded=1;fontSize=11;"
+          vertex="1" connectable="0" parent="70">
+          <mxGeometry relative="0" as="geometry"><mxPoint as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- DATABASE LAYER                                      -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <mxCell id="80" value="DATA LAYER — MySQL Database  (jdbc:mysql://localhost:3306/project)"
+          style="swimlane;startSize=35;fontStyle=1;fontSize=12;fillColor=#F3E5F5;strokeColor=#7B1FA2;fontColor=#4A148C;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="1300" width="1574" height="440" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="81" value="&lt;b style=&quot;color:#4A148C;font-size:12px&quot;&gt;👤  users&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-family:monospace;font-size:11px&quot;&gt;&lt;b style=&quot;color:#D4AC0D&quot;&gt;PK&lt;/b&gt;  id  (INT)&lt;br&gt;      username  (VARCHAR, UNIQUE)&lt;br&gt;      password  (VARCHAR, BCrypt hash)&lt;br&gt;      role  (ENUM: AUTHOR|REVIEWER|READER|ADMIN)&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#7E57C2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;"
+          vertex="1" parent="80">
+          <mxGeometry x="10" y="50" width="490" height="165" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="82" value="&lt;b style=&quot;color:#4A148C;font-size:12px&quot;&gt;📄  documents&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-family:monospace;font-size:11px&quot;&gt;&lt;b style=&quot;color:#D4AC0D&quot;&gt;PK&lt;/b&gt;  id  (INT)&lt;br&gt;      title  (VARCHAR)&lt;br&gt;&lt;b style=&quot;color:#1A5276&quot;&gt;FK&lt;/b&gt;  created_by  →  users.id&lt;br&gt;      created_at  (TIMESTAMP)&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#7E57C2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;"
+          vertex="1" parent="80">
+          <mxGeometry x="520" y="50" width="490" height="165" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="83" value="&lt;b style=&quot;color:#4A148C;font-size:12px&quot;&gt;📑  document_versions&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-family:monospace;font-size:11px&quot;&gt;&lt;b style=&quot;color:#D4AC0D&quot;&gt;PK&lt;/b&gt;  id  (INT)&lt;br&gt;&lt;b style=&quot;color:#1A5276&quot;&gt;FK&lt;/b&gt;  document_id  →  documents.id&lt;br&gt;      version_number  (INT)&lt;br&gt;      content  (TEXT)&lt;br&gt;      status  (PENDING_APPROVAL|APPROVED|REJECTED)&lt;br&gt;&lt;b style=&quot;color:#1A5276&quot;&gt;FK&lt;/b&gt;  created_by  →  users.id&lt;br&gt;      created_at  (TIMESTAMP)&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#7E57C2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;"
+          vertex="1" parent="80">
+          <mxGeometry x="1040" y="50" width="524" height="165" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="84" value="&lt;b style=&quot;color:#4A148C;font-size:12px&quot;&gt;💬  document_comments&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-family:monospace;font-size:11px&quot;&gt;&lt;b style=&quot;color:#D4AC0D&quot;&gt;PK&lt;/b&gt;  id  (INT)&lt;br&gt;&lt;b style=&quot;color:#1A5276&quot;&gt;FK&lt;/b&gt;  version_id  →  document_versions.id&lt;br&gt;&lt;b style=&quot;color:#1A5276&quot;&gt;FK&lt;/b&gt;  reviewer_id  →  users.id&lt;br&gt;      comment_text  (TEXT)&lt;br&gt;      created_at  (TIMESTAMP)&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#7E57C2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;"
+          vertex="1" parent="80">
+          <mxGeometry x="10" y="240" width="490" height="165" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="85" value="&lt;b style=&quot;color:#4A148C;font-size:12px&quot;&gt;🔄  role_requests&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-family:monospace;font-size:11px&quot;&gt;&lt;b style=&quot;color:#D4AC0D&quot;&gt;PK&lt;/b&gt;  id  (INT)&lt;br&gt;      username  (VARCHAR)&lt;br&gt;      current_role  (ENUM)&lt;br&gt;      requested_role  (ENUM)&lt;br&gt;      status  (PENDING|APPROVED|REJECTED)&lt;br&gt;      created_at  (TIMESTAMP)&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#7E57C2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;"
+          vertex="1" parent="80">
+          <mxGeometry x="520" y="240" width="490" height="165" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="86" value="&lt;b style=&quot;color:#4A148C;font-size:12px&quot;&gt;📋  audit_logs&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-family:monospace;font-size:11px&quot;&gt;&lt;b style=&quot;color:#D4AC0D&quot;&gt;PK&lt;/b&gt;  id  (INT)&lt;br&gt;&lt;b style=&quot;color:#1A5276&quot;&gt;FK&lt;/b&gt;  user_id  →  users.id&lt;br&gt;      action  (CREATE_DOCUMENT|CREATE_VERSION|REVIEW_VERSION)&lt;br&gt;      metadata  (doc_id, status change)&lt;br&gt;      timestamp  (TIMESTAMP)&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#7E57C2;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;"
+          vertex="1" parent="80">
+          <mxGeometry x="1040" y="240" width="524" height="165" as="geometry"/>
+        </mxCell>
+
+        <!-- FK Relationship Arrows (inside DB container, parent=80) -->
+        <mxCell id="110" value="created_by (FK)"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=ERone;startArrow=ERmanyToOne;endFill=0;startFill=0;strokeColor=#9673A6;fontSize=9;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;"
+          edge="1" source="82" target="81" parent="80">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="111" value="document_id (FK)"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=ERone;startArrow=ERmanyToOne;endFill=0;startFill=0;strokeColor=#9673A6;fontSize=9;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;"
+          edge="1" source="83" target="82" parent="80">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="112" value="version_id (FK)"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=ERone;startArrow=ERmanyToOne;endFill=0;startFill=0;strokeColor=#9673A6;fontSize=9;exitX=1;exitY=0.4;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;"
+          edge="1" source="84" target="83" parent="80">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="113" value="user_id (FK)"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=ERone;startArrow=ERmanyToOne;endFill=0;startFill=0;strokeColor=#9673A6;fontSize=9;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;"
+          edge="1" source="86" target="81" parent="80">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="114" value="reviewer_id (FK)"
+          style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=ERone;startArrow=ERmanyToOne;endFill=0;startFill=0;strokeColor=#9673A6;fontSize=9;exitX=0;exitY=0.7;exitDx=0;exitDy=0;entryX=0.2;entryY=1;entryDx=0;entryDy=0;"
+          edge="1" source="84" target="81" parent="80">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- DOCUMENT WORKFLOW                                   -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <mxCell id="90" value="DOCUMENT VERSION LIFECYCLE"
+          style="swimlane;startSize=35;fontStyle=1;fontSize=12;fillColor=#F1F8E9;strokeColor=#558B2F;fontColor=#1B5E20;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="1790" width="1574" height="280" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="91" value="&lt;b style=&quot;color:#1A5276&quot;&gt;1.  Author&lt;/b&gt;&lt;br&gt;&lt;br&gt;Creates&lt;br&gt;Document&lt;br&gt;&lt;br&gt;&lt;font style=&quot;background:#D6EAF8;padding:3px 7px;border-radius:4px;font-size:10px;font-weight:bold;color:#1A5276&quot;&gt;NEW&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;verticalAlign=top;spacingTop=12;align=center;fontSize=12;"
+          vertex="1" parent="90">
+          <mxGeometry x="10" y="45" width="185" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="201" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;strokeColor=#558B2F;strokeWidth=2;" edge="1" source="91" target="92" parent="90"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="92" value="&lt;b style=&quot;color:#7D6608&quot;&gt;2.  Author&lt;/b&gt;&lt;br&gt;&lt;br&gt;Creates&lt;br&gt;New Version&lt;br&gt;&lt;br&gt;&lt;font style=&quot;background:#FEF9E7;padding:3px 7px;border-radius:4px;font-size:10px;font-weight:bold;color:#7D6608&quot;&gt;PENDING_APPROVAL&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;verticalAlign=top;spacingTop=12;align=center;fontSize=12;"
+          vertex="1" parent="90">
+          <mxGeometry x="225" y="45" width="185" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="202" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;strokeColor=#558B2F;strokeWidth=2;" edge="1" source="92" target="93" parent="90"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="93" value="&lt;b style=&quot;color:#7D5200&quot;&gt;3.  Reviewer&lt;/b&gt;&lt;br&gt;&lt;br&gt;Evaluates&lt;br&gt;Version&lt;br&gt;&lt;br&gt;&lt;font style=&quot;background:#FDEBD0;padding:3px 7px;border-radius:4px;font-size:10px;font-weight:bold;color:#7D5200&quot;&gt;UNDER_REVIEW&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;verticalAlign=top;spacingTop=12;align=center;fontSize=12;"
+          vertex="1" parent="90">
+          <mxGeometry x="440" y="45" width="185" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="203" value="Approved" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;strokeColor=#27AE60;strokeWidth=2;fontColor=#27AE60;fontStyle=1;fontSize=10;" edge="1" source="93" target="94" parent="90"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="208" value="Rejected" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;strokeColor=#E74C3C;strokeWidth=2;fontColor=#E74C3C;fontStyle=1;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="93" target="97" parent="90"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="94" value="&lt;b style=&quot;color:#145A32&quot;&gt;4.  Approved&lt;/b&gt;&lt;br&gt;&lt;br&gt;Version&lt;br&gt;Accepted&lt;br&gt;&lt;br&gt;&lt;font style=&quot;background:#D5F5E3;padding:3px 7px;border-radius:4px;font-size:10px;font-weight:bold;color:#145A32&quot;&gt;APPROVED&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;verticalAlign=top;spacingTop=12;align=center;fontSize=12;"
+          vertex="1" parent="90">
+          <mxGeometry x="660" y="45" width="185" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="204" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;strokeColor=#27AE60;strokeWidth=2;" edge="1" source="94" target="95" parent="90"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="95" value="&lt;b style=&quot;color:#0D47A1&quot;&gt;5.  System&lt;/b&gt;&lt;br&gt;&lt;br&gt;Sets Version&lt;br&gt;as Active&lt;br&gt;&lt;br&gt;&lt;font style=&quot;background:#D6EAF8;padding:3px 7px;border-radius:4px;font-size:10px;font-weight:bold;color:#0D47A1&quot;&gt;ACTIVE&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#1976D2;verticalAlign=top;spacingTop=12;align=center;fontSize=12;"
+          vertex="1" parent="90">
+          <mxGeometry x="875" y="45" width="185" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="205" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;strokeColor=#27AE60;strokeWidth=2;" edge="1" source="95" target="96" parent="90"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="96" value="&lt;b style=&quot;color:#145A32&quot;&gt;6.  Reader&lt;/b&gt;&lt;br&gt;&lt;br&gt;Views&lt;br&gt;Document&lt;br&gt;&lt;br&gt;&lt;font style=&quot;background:#D5E8D4;padding:3px 7px;border-radius:4px;font-size:10px;font-weight:bold;color:#145A32&quot;&gt;READ-ONLY&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;verticalAlign=top;spacingTop=12;align=center;fontSize=12;"
+          vertex="1" parent="90">
+          <mxGeometry x="1090" y="45" width="185" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="97" value="&lt;b style=&quot;color:#78281F&quot;&gt;REJECTED&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;color:#555&quot;&gt;Stays in history · Cannot be activated&lt;/font&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;verticalAlign=middle;align=center;fontSize=11;"
+          vertex="1" parent="90">
+          <mxGeometry x="660" y="215" width="400" height="50" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
