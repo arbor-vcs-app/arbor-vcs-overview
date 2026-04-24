@@ -20,7 +20,7 @@
   |     Name           |   Role               |                        GitHub                             |
   |------------------  |----------------------|-----------------------------------------------------------|
   | Konstantin Nenov   | Frontend + Org       | [@konstantinNenov](https://github.com/konstantinNenov)    |
-  | Djan Fuchidji      | Backend              | [@Djan9999](https://github.com/Djan9999)                  |
+  | Djan Fuchidji      | Backend + Database   | [@Djan9999](https://github.com/Djan9999)                  |
   | Iliana Ilieva      | Lean Canvas + Design | [@iliana-ilieva](https://github.com/iliana-ilieva)        |
   | Kaloyan Kolev      | Documentaion         | [@kalokolev](https://github.com/kalokolev)                |
   | Kaloyan Karpachev  | Deployment           | [@kkarpachevv-star](https://github.com/kkarpachevv-star)  |
